@@ -1,0 +1,52 @@
+<section class="hero is-large">
+    <div class="hero-body home">
+        <div class="container has-text-centered">
+        <h1 class="title" style="font-family: 'HanziPen TC',sans-serif;">
+            Smile Board
+        </h1>
+          <p class="subtitle is-6">
+            楽しいから笑うのではない。笑うから楽しいのだ。
+          </p>
+        </div>
+
+        <div class="small-spacer"></div>
+        <div class="columns is-centered">
+            <div class="column">
+                <figure>
+                    <div class="main-image"></div>
+                </figure>
+            </div>
+        </div>
+        <div class="meddium-spacer"></div>
+        <div class="container has-text-centered">
+        <h1 class="title">
+            さあ、君もSmile Boardの世界へ。
+        </h1>
+          <p class="subtitle is-6">
+            最高の一瞬を永遠に
+          </p>
+        </div>
+        <div class="columns is-centered">
+            
+            <div class="column is-4">
+            <br>
+            <%= link_to "ログイン", new_user_session_path, class: "button is-info is-fullwidth" %>
+            <br>
+            <%= link_to "新規登録", new_user_registration_path, class: "button is-info is-fullwidth" %>
+            </div>
+        </div>
+    </div>
+    <div class="hero-foot my-color">
+    <nav class="tabs is-fullwidth">
+      <div class="container">
+        <ul>
+          <li class="is-active"><%= link_to 'Smile Boardとは', "/about" %></li>
+          <li><a href="/about">投稿一覧</a></li>
+          <li><a>smiler</a></li>
+          <li><a>使い方</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+    
+</section>

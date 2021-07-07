@@ -1,0 +1,78 @@
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                詳しく見る
+            </h1>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-9">
+                <div class="card is-narrow">
+                    <div class="min-spacer">
+                        <% if @post.user.id == current_user.id %>
+                            <nav class="navbar is-transparent">
+                                <div class="navbar-brand">
+                                    <%= link_to user_path(@post.user), class: "panel-block" do %>
+                                        <span class="panel-icon">
+                                            <i class="fas fa-user" aria-hidden="true"></i>
+                                        </span>
+                                        <%= @post.user.username %> さんのページへ
+                                    <% end %>
+                                    <div class="navbar-burger" data-target="navbarExampleTransparentExample">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+    
+                                <div id="navbarExampleTransparentExample" class="navbar-menu">
+                                    <div class="navbar-start"></div>
+                                </div>
+    
+                                <div class="navbar-end">
+                                    <div class="navbar-item">
+                                        <div class="field is-grouped">
+                                            <p class="control">
+                                                <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="https://bulma.io" target="_blank" href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=https://bulma.io&amp;via=jgthms">
+                                                    <span class="icon">
+                                                        <i class="fab fa-twitter"></i>
+                                                    </span>
+                                                    <span>Tweet</span>
+                                                </a>
+                                            </p>
+                                            <p class="control">
+                                                <%= link_to "Edit", edit_post_path(@post), class: "button is-success" %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                        <% end %>
+                    </div>
+                    <div class="card-image">
+                        <figure class="image is-2by2">
+                            <%= attachment_image_tag @post, :image %>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4"><%= @post.title %></p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <%= simple_format @post.body %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

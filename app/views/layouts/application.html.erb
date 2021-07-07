@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Smileboard</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://kit.fontawesome.com/5d7a87239a.js" crossorigin="anonymous"></script>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+    <% if flash[:notice] %>
+      <div class="notification is-info">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="notification is-danger">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+
+    <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path)%>
+    <nav class="navbar is-info fixed">
+
+
+      <div class="container">
+        <div class="navbar-brand">
+          <%= link_to root_path, class: "navbar-item" do %>
+            <h1 class="title is-4" style="font-family: 'HanziPen TC',sans-serif;">Smile Board</h1>
+          <% end %>
+           <ul class="nav-links">
+                <li>
+                    <a href="#profile">PROFILE</a>
+                </li>
+                <li>
+                    <a href="#skills">SKILLS</a>
+                </li>
+                <li>
+                    <a href="#work">WORKS</a>
+                </li>
+                <li>
+                    <a href="#contact">Project</a>
+                </li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+        <div id="navbarMenuHeroA" class="navbar-menu">
+            <% if user_signed_in? %>
+              <div class="navbar-item">
+                <%= link_to "みんなの投稿", posts_path, class: "navbar-item button is-success is-light" %>
+              </div>
+              <div class="navbar-item">
+                <%= link_to "新規投稿", new_post_path, class: "button is-success is-light" %>
+              </div>
+          <div class="navbar-end">
+              <div class="navbar-item">
+                <%= link_to "マイページ", user_path(current_user), class: "button is-success is-light" %>
+              </div>
+              <div class="navbar-item">
+                <%= link_to "Smiler一覧", users_path, class: "button is-success is-light" %>
+              </div>
+              <div class="navbar-item">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-success is-light" %>
+              </div>
+            <% else %>
+              <div class="navbar-item">
+                <%= link_to "みんなの一覧", posts_path, class: "button is-success is-light" %>
+              </div>
+              <div class="navbar-item">
+                <%= link_to "Smiler一覧", users_path, class: "button is-success is-light" %>
+              </div>
+              <div class="navbar-end"> 
+                <div class="navbar-item">
+                  <%= link_to "ログイン", new_user_session_path, class: "button is-success is-light" %>
+                </div>
+                <div class="navbar-item">
+                  <%= link_to "新規登録", new_user_registration_path, class: "button is-success is-light" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <% end %>
+    
+    <%= yield %>
+
+
+  </body>
+</html>

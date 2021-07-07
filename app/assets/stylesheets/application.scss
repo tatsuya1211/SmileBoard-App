@@ -1,0 +1,139 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ 
+
+ @import "bulma";
+
+///////////////////////
+@mixin pc {
+    @media screen and (min-width: 960px) {
+        @content;
+    }
+}
+
+@mixin tab {
+    @media screen and (max-width: 959px) {
+        @content;
+    }
+}
+@mixin sp {
+    @media screen and (max-width: 600px) {
+        @content;
+    }
+}
+
+
+///////////////////////
+
+ /*************/
+
+ .min-spacer {
+     height: 60px;
+ }
+
+ .small-spacer {
+     height: 150px;
+ }
+
+ .meddium-spacer {
+     height: 300px;
+ }
+ 
+ 
+ /*************/
+
+ body {
+     background-color: rgb(14, 241, 204);
+ }
+
+ .notification:not(:last-child) {
+     margin-bottom: 0;
+ }
+
+ .profile_image {
+    border-radius: 50%;
+    width: 270px;
+    height: 270px;   /* ※縦横を同値に */
+    background-position: center ;
+    background-size:cover;
+ }
+
+ .my-color {
+    background-color: rgb(14, 241, 204);
+ }
+
+ .home {
+     background-color: rgb(14, 241, 204);
+     height: 280vh;
+ }
+
+ .fixed {
+     @include sp {
+         position: fixed;
+         width: 100%;
+     }
+ }
+
+ .main-image {
+    height: 960px;
+	background-image: url(smile.jpg);
+	background-repeat: no-repeat;
+    background-size: contain;
+ }
+
+ .rounded {
+    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    width:  180px;       /* ※縦横を同値に */
+    height: 180px;       /* ※縦横を同値に */
+    background-position: center ;
+    background-size:cover;
+}
+
+.body {
+    height: 85vh;
+}
+
+.hero {
+    height: 15vh;
+}
+
+.title {
+    font-family: 'Hannotate SC',sans-serif;
+}
+
+.min-title {
+    font-family: 'Hannotate SC',sans-serif;
+    font-size: 1.5em;
+}
+
+// .control {
+//     font-size: 2rem;
+// }
+
+.is-narrow {
+    box-shadow: 3px 3px 3px rgba(53, 53, 53, 0.459);
+}
+
+.navbar-item {
+    @include sp {
+        display: none;
+    }
+}
+
+.nav-links {
+    display: none;
+}
